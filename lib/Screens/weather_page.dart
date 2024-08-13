@@ -99,7 +99,7 @@ class _WeatherpageState extends State<Weatherpage> {
         ),
       ),
       child: Scaffold(
-        backgroundColor: Color(0x00000000),
+        backgroundColor: const Color(0x00000000),
         appBar: AppBar(
           backgroundColor: Colors.transparent,
         ),
@@ -112,7 +112,8 @@ class _WeatherpageState extends State<Weatherpage> {
                       child: Text(
                         weatherInfo.weatherdata!.name,
                         style: GoogleFonts.lato(
-                          textStyle: TextStyle(fontSize: 35, letterSpacing: .5),
+                          textStyle:
+                              const TextStyle(fontSize: 35, letterSpacing: .5),
                         ),
                       ),
                     ),
@@ -120,7 +121,8 @@ class _WeatherpageState extends State<Weatherpage> {
                       formatDate2(
                           timeZoneToTime(weatherInfo.weatherdata!.timezone)),
                       style: GoogleFonts.lato(
-                        textStyle: TextStyle(fontSize: 35, letterSpacing: .5),
+                        textStyle:
+                            const TextStyle(fontSize: 35, letterSpacing: .5),
                       ),
                     ),
                     const SizedBox(
@@ -139,14 +141,14 @@ class _WeatherpageState extends State<Weatherpage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
+                          const Text(
                             'Current weather',
                             style: TextStyle(fontSize: 24),
                           ),
                           InkWell(
                             onTap: () {
                               Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => ForecastPage(),
+                                builder: (context) => const ForecastPage(),
                               ));
                             },
                             child: Container(
@@ -158,20 +160,20 @@ class _WeatherpageState extends State<Weatherpage> {
                                       // isHovered
                                       //     ? Color.fromARGB(173, 16, 29, 85)
                                       //     : Colors.lightBlue
-                                      Color.fromARGB(173, 16, 29, 85)),
+                                      const Color.fromARGB(173, 16, 29, 85)),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
                                     'Forecast',
                                     style: GoogleFonts.lato(
-                                      textStyle: TextStyle(
+                                      textStyle: const TextStyle(
                                           color: Colors.white,
                                           fontSize: 18,
                                           letterSpacing: .5),
                                     ),
                                   ),
-                                  Icon(
+                                  const Icon(
                                     Icons.arrow_outward_rounded,
                                     color: Colors.white,
                                   ),
@@ -233,12 +235,12 @@ class _WeatherpageState extends State<Weatherpage> {
                                 children: [
                                   Text(
                                     "${convertToFahrenheit(weatherInfo.weatherdata!.main.temp)}\u00B0",
-                                    style: TextStyle(fontSize: 40),
+                                    style: const TextStyle(fontSize: 40),
                                   ),
                                   Text(
                                     formatDescName(weatherInfo
                                         .weatherdata!.weather[0].description),
-                                    style: TextStyle(fontSize: 20),
+                                    style: const TextStyle(fontSize: 20),
                                     // softWrap: true,
                                     overflow: TextOverflow.ellipsis,
                                     maxLines: 2,
@@ -260,62 +262,57 @@ class _WeatherpageState extends State<Weatherpage> {
                                 // boxShadow: []],
                                 border:
                                     Border.all(color: Colors.grey.shade500)),
-                            child: Column(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
+                                Column(
                                   children: [
-                                    Column(
-                                      children: [
-                                        CurrentData(
-                                            weatherInfo: weatherInfo,
-                                            weatherIcon: QWeatherIcons
-                                                .tag_low_humidity2.iconData,
-                                            title: "Humidity",
-                                            value:
-                                                "${weatherInfo.weatherdata!.main.humidity!.toDouble()}%"),
-                                        CurrentData(
-                                            weatherInfo: weatherInfo,
-                                            weatherIcon: QWeatherIcons
-                                                .tag_wind3.iconData,
-                                            title: "Wind",
-                                            value:
-                                                "${weatherInfo.weatherdata!.wind.speed} km/h"),
-                                        CurrentData(
-                                            weatherInfo: weatherInfo,
-                                            weatherIcon: QWeatherIcons
-                                                .tag_sunny.iconData,
-                                            title: "Sunrise",
-                                            value:
-                                                "${formatDate2(timeZoneToTime(weatherInfo.weatherdata!.sys.sunrise))} AM"),
-                                      ],
-                                    ),
-                                    Column(
-                                      children: [
-                                        CurrentData(
-                                            weatherInfo: weatherInfo,
-                                            weatherIcon: QWeatherIcons
-                                                .tag_high_temperature.iconData,
-                                            title: "Feels like",
-                                            value:
-                                                "${convertToFahrenheit(weatherInfo.weatherdata!.main.feelsLike)}\u00B0C"),
-                                        CurrentData(
-                                            weatherInfo: weatherInfo,
-                                            weatherIcon:
-                                                QWeatherIcons.tag_wind.iconData,
-                                            title: "Visibility",
-                                            value:
-                                                "${metersToKilometers(weatherInfo.weatherdata!.visibility)} km"),
-                                        CurrentData(
-                                            weatherInfo: weatherInfo,
-                                            weatherIcon: QWeatherIcons
-                                                .tag_full_moon.iconData,
-                                            title: "Sunset",
-                                            value:
-                                                "${formatDate2(timeZoneToTime(weatherInfo.weatherdata!.sys.sunset))} PM"),
-                                      ],
-                                    )
+                                    CurrentData(
+                                        weatherInfo: weatherInfo,
+                                        weatherIcon: QWeatherIcons
+                                            .tag_low_humidity2.iconData,
+                                        title: "Humidity",
+                                        value:
+                                            "${weatherInfo.weatherdata!.main.humidity!.toDouble()}%"),
+                                    CurrentData(
+                                        weatherInfo: weatherInfo,
+                                        weatherIcon:
+                                            QWeatherIcons.tag_wind3.iconData,
+                                        title: "Wind",
+                                        value:
+                                            "${weatherInfo.weatherdata!.wind.speed} km/h"),
+                                    CurrentData(
+                                        weatherInfo: weatherInfo,
+                                        weatherIcon:
+                                            QWeatherIcons.tag_sunny.iconData,
+                                        title: "Sunrise",
+                                        value:
+                                            "${formatDate2(timeZoneToTime(weatherInfo.weatherdata!.sys.sunrise))} AM"),
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    CurrentData(
+                                        weatherInfo: weatherInfo,
+                                        weatherIcon: QWeatherIcons
+                                            .tag_high_temperature.iconData,
+                                        title: "Feels like",
+                                        value:
+                                            "${convertToFahrenheit(weatherInfo.weatherdata!.main.feelsLike)}\u00B0C"),
+                                    CurrentData(
+                                        weatherInfo: weatherInfo,
+                                        weatherIcon:
+                                            QWeatherIcons.tag_wind.iconData,
+                                        title: "Visibility",
+                                        value:
+                                            "${metersToKilometers(weatherInfo.weatherdata!.visibility)} km"),
+                                    CurrentData(
+                                        weatherInfo: weatherInfo,
+                                        weatherIcon: QWeatherIcons
+                                            .tag_full_moon.iconData,
+                                        title: "Sunset",
+                                        value:
+                                            "${formatDate2(timeZoneToTime(weatherInfo.weatherdata!.sys.sunset))} PM"),
                                   ],
                                 )
                               ],

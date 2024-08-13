@@ -86,7 +86,7 @@ class _ForecastPageState extends State<ForecastPage> {
         ),
       ),
       child: Scaffold(
-          backgroundColor: Color(0x00000000),
+          backgroundColor: const Color(0x00000000),
           appBar: AppBar(
             backgroundColor: Colors.transparent,
           ),
@@ -110,8 +110,8 @@ class _ForecastPageState extends State<ForecastPage> {
                           formatDate2(timeZoneToTime(
                               weatherInfo.weatherdata!.timezone)),
                           style: GoogleFonts.lato(
-                            textStyle:
-                                TextStyle(fontSize: 35, letterSpacing: .5),
+                            textStyle: const TextStyle(
+                                fontSize: 35, letterSpacing: .5),
                           ),
                         ),
                         const SizedBox(
@@ -136,7 +136,8 @@ class _ForecastPageState extends State<ForecastPage> {
                                   width: 140,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(10),
-                                      color: Color.fromARGB(173, 16, 29, 85)),
+                                      color: const Color.fromARGB(
+                                          173, 16, 29, 85)),
                                   child: Center(
                                     child: Row(
                                       mainAxisAlignment:
@@ -145,13 +146,13 @@ class _ForecastPageState extends State<ForecastPage> {
                                         Text(
                                           'Weather',
                                           style: GoogleFonts.lato(
-                                            textStyle: TextStyle(
+                                            textStyle: const TextStyle(
                                                 color: Colors.white,
                                                 fontSize: 18,
                                                 letterSpacing: .5),
                                           ),
                                         ),
-                                        Icon(
+                                        const Icon(
                                           Icons.arrow_outward_rounded,
                                           color: Colors.white,
                                         ),
@@ -210,7 +211,7 @@ class _ForecastPageState extends State<ForecastPage> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
+                              const Text(
                                 "Today's forecast",
                                 style: TextStyle(fontSize: 25),
                               ),
@@ -263,7 +264,7 @@ class _ForecastPageState extends State<ForecastPage> {
                                               decoration: BoxDecoration(
                                                   borderRadius:
                                                       BorderRadius.circular(10),
-                                                  color: Color.fromARGB(
+                                                  color: const Color.fromARGB(
                                                       172, 143, 149, 180)),
                                               child: Row(
                                                 mainAxisAlignment:
@@ -300,12 +301,12 @@ class _ForecastPageState extends State<ForecastPage> {
                                                         // .toString()
                                                         //
                                                         ,
-                                                        style: TextStyle(
+                                                        style: const TextStyle(
                                                             fontSize: 15),
                                                       ),
                                                       Text(
                                                         "${convertToFahrenheit(currentDayForecast[index].main.temp)} \u00B0C",
-                                                        style: TextStyle(
+                                                        style: const TextStyle(
                                                             fontSize: 18),
                                                       )
                                                     ],
@@ -320,7 +321,7 @@ class _ForecastPageState extends State<ForecastPage> {
                             },
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 80,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -408,7 +409,7 @@ class _ForecastPageState extends State<ForecastPage> {
                                             decoration: BoxDecoration(
                                               borderRadius:
                                                   BorderRadius.circular(10),
-                                              color: Color.fromARGB(
+                                              color: const Color.fromARGB(
                                                   172, 190, 195, 219),
                                             ),
                                             child: Row(
@@ -436,12 +437,12 @@ class _ForecastPageState extends State<ForecastPage> {
                                                   children: [
                                                     Text(
                                                         "${convertToFahrenheit(dailyData[index].main.tempMin)} \u00B0C",
-                                                        style: TextStyle(
+                                                        style: const TextStyle(
                                                           fontSize: 18,
                                                         )),
                                                     Text(
                                                         " \\ ${convertToFahrenheit(dailyData[index].main.tempMax)} \u00B0C",
-                                                        style: TextStyle(
+                                                        style: const TextStyle(
                                                           fontSize: 18,
                                                         )),
                                                   ],

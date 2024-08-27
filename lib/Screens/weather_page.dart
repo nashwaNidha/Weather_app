@@ -110,7 +110,7 @@ class _WeatherpageState extends State<Weatherpage> {
                   children: [
                     Center(
                       child: Text(
-                        weatherInfo.weatherdata!.name,
+                        weatherInfo.weatherdata!.name!,
                         style: GoogleFonts.lato(
                           textStyle:
                               const TextStyle(fontSize: 35, letterSpacing: .5),
@@ -234,12 +234,12 @@ class _WeatherpageState extends State<Weatherpage> {
                                 // crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
-                                    "${convertToFahrenheit(weatherInfo.weatherdata!.main.temp)}\u00B0",
+                                    "${convertToFahrenheit(weatherInfo.weatherdata!.main!.temp!)}\u00B0",
                                     style: const TextStyle(fontSize: 40),
                                   ),
                                   Text(
                                     formatDescName(weatherInfo
-                                        .weatherdata!.weather[0].description),
+                                        .weatherdata!.weather![0].description!),
                                     style: const TextStyle(fontSize: 20),
                                     // softWrap: true,
                                     overflow: TextOverflow.ellipsis,
@@ -273,21 +273,21 @@ class _WeatherpageState extends State<Weatherpage> {
                                             .tag_low_humidity2.iconData,
                                         title: "Humidity",
                                         value:
-                                            "${weatherInfo.weatherdata!.main.humidity!.toDouble()}%"),
+                                            "${weatherInfo.weatherdata!.main!.humidity!.toDouble()}%"),
                                     CurrentData(
                                         weatherInfo: weatherInfo,
                                         weatherIcon:
                                             QWeatherIcons.tag_wind3.iconData,
                                         title: "Wind",
                                         value:
-                                            "${weatherInfo.weatherdata!.wind.speed} km/h"),
+                                            "${weatherInfo.weatherdata!.wind!.speed} km/h"),
                                     CurrentData(
                                         weatherInfo: weatherInfo,
                                         weatherIcon:
                                             QWeatherIcons.tag_sunny.iconData,
                                         title: "Sunrise",
                                         value:
-                                            "${formatDate2(timeZoneToTime(weatherInfo.weatherdata!.sys.sunrise))} AM"),
+                                            "${formatDate2(timeZoneToTime(weatherInfo.weatherdata!.sys!.sunrise))} AM"),
                                   ],
                                 ),
                                 Column(
@@ -298,21 +298,21 @@ class _WeatherpageState extends State<Weatherpage> {
                                             .tag_high_temperature.iconData,
                                         title: "Feels like",
                                         value:
-                                            "${convertToFahrenheit(weatherInfo.weatherdata!.main.feelsLike)}\u00B0C"),
+                                            "${convertToFahrenheit(weatherInfo.weatherdata!.main!.feelsLike!)}\u00B0C"),
                                     CurrentData(
                                         weatherInfo: weatherInfo,
                                         weatherIcon:
                                             QWeatherIcons.tag_wind.iconData,
                                         title: "Visibility",
                                         value:
-                                            "${metersToKilometers(weatherInfo.weatherdata!.visibility)} km"),
+                                            "${metersToKilometers(weatherInfo.weatherdata!.visibility!)} km"),
                                     CurrentData(
                                         weatherInfo: weatherInfo,
                                         weatherIcon: QWeatherIcons
                                             .tag_full_moon.iconData,
                                         title: "Sunset",
                                         value:
-                                            "${formatDate2(timeZoneToTime(weatherInfo.weatherdata!.sys.sunset))} PM"),
+                                            "${formatDate2(timeZoneToTime(weatherInfo.weatherdata!.sys!.sunset))} PM"),
                                   ],
                                 )
                               ],
@@ -324,7 +324,6 @@ class _WeatherpageState extends State<Weatherpage> {
     );
   }
 }
-
 
 // Text(
 //                       "${weatherInfo.weatherdata!.main.temp.toString()}\u00B0\n",

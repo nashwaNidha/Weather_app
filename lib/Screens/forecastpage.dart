@@ -99,7 +99,7 @@ class _ForecastPageState extends State<ForecastPage> {
                       children: [
                         Center(
                           child: Text(
-                            weatherInfo.weatherdata!.name,
+                            weatherInfo.weatherdata!.name!,
                             style: GoogleFonts.lato(
                               textStyle: const TextStyle(
                                   fontSize: 35, letterSpacing: .5),

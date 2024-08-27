@@ -1,8 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
-import 'package:weather_app/model/weathemodel.dart';
 import 'package:weather_app/services/location_access.dart';
+
+import '../model/weather_model/weather_model.dart';
 
 class WeatherDetails with ChangeNotifier {
   WeatherModel? _weatherData;
@@ -29,7 +32,7 @@ class WeatherDetails with ChangeNotifier {
     _isLoading = true;
     var response = await http.get(Uri.parse(baseUrl));
     if (response.statusCode == 200) {
-      _weatherData = weatherModelFromJson(response.body);
+      _weatherData = WeatherModel.fromJson(json.decode(response.body));
       print(response.body);
       _isLoading = false;
       notifyListeners();

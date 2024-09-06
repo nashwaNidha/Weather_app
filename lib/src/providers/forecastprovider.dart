@@ -25,7 +25,8 @@ class ForecastDetails with ChangeNotifier {
         "https://api.openweathermap.org/data/2.5/forecast?lat=$latitude&lon=$longitude&appid=5b0579e2ad08cc47cd4c137bb61ac686&units=imperial";
 
     _isLoading = true;
-    var response = await http.get(Uri.parse(baseUrl));
+    var response =
+        await http.get(Uri.parse(baseUrl)).timeout(const Duration(seconds: 15));
     if (response.statusCode == 200) {
       _forecastData = ForecastWeatherModel.fromJson(json.decode(response.body));
       //   String currentDate = DateTime.now().toLocal().toString().split(' ')[0];

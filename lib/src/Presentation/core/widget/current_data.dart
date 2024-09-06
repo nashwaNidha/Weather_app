@@ -1,9 +1,6 @@
 import 'dart:core';
-
 import 'package:flutter/material.dart';
-import 'package:qweather_icons/qweather_icons.dart';
-
-import '../providers/weatherprovider.dart';
+import '../../../providers/weatherprovider.dart';
 
 class CurrentData extends StatelessWidget {
   final WeatherDetails weatherInfo;

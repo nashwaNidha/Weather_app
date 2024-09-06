@@ -1,10 +1,8 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
-import 'package:weather_app/services/location_access.dart';
-
+import 'package:weather_app/src/services/location_access.dart';
 import '../model/weather_model/weather_model.dart';
 
 class WeatherDetails with ChangeNotifier {
@@ -30,7 +28,8 @@ class WeatherDetails with ChangeNotifier {
         "https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=5b0579e2ad08cc47cd4c137bb61ac686&units=imperial";
 
     _isLoading = true;
-    var response = await http.get(Uri.parse(baseUrl));
+    var response =
+        await http.get(Uri.parse(baseUrl)).timeout(const Duration(seconds: 15));
     if (response.statusCode == 200) {
       _weatherData = WeatherModel.fromJson(json.decode(response.body));
       print(response.body);

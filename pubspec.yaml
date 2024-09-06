@@ -32,6 +32,8 @@ dev_dependencies:
     sdk: flutter
 
 flutter:
+  assets:
+    - assets/
   uses-material-design: true
 
 flutter_launcher_icons:
@@ -41,6 +43,3 @@ flutter_launcher_icons:
   remove_alpha_ios: true
   adaptive_icon_background: "#ffffff"
   adaptive_icon_foreground: "assets/weather_app_icon.png"
-
-  assets:
-    - assets/

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:weather_app/Screens/forecastpage.dart';
-import 'package:weather_app/Screens/weather_page.dart';
-import 'package:weather_app/providers/forecastprovider.dart';
-import 'package:weather_app/providers/weatherprovider.dart';
+import 'package:weather_app/src/Presentation/view/weather_page.dart';
+import 'package:weather_app/src/providers/forecastprovider.dart';
+import 'package:weather_app/src/providers/weatherprovider.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

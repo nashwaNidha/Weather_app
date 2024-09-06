@@ -1,9 +1,8 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
-import '../model/forecast_weather_model.dart';
+import '../domain/model/forecast_weather_model.dart';
 import '../services/location_access.dart';
 
 class ForecastDetails with ChangeNotifier {
@@ -33,11 +32,8 @@ class ForecastDetails with ChangeNotifier {
       //   List<dynamic> currentDayForecast = _forecastData!['forecast'].where((forecast) {
       //   return forecast['dt_txt'].startsWith(currentDate);
       // }).toList();
-      print(response.body);
       _isLoading = false;
       notifyListeners();
-    } else {
-      print("error--------------------------------------------");
-    }
+    } else {}
   }
 }

@@ -8,7 +8,7 @@ import 'package:weather_app/src/Presentation/core/widget/location_text.dart';
 import 'package:weather_app/src/providers/forecastprovider.dart';
 import 'package:weather_app/src/providers/weatherprovider.dart';
 
-import '../../model/forecast_weather_model.dart';
+import '../../domain/model/forecast_weather_model.dart';
 
 class ForecastPage extends StatefulWidget {
   const ForecastPage({super.key});

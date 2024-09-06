@@ -40,9 +40,9 @@ class CurrentData extends StatelessWidget {
                 children: [
                   Text(
                     title,
-                    style: TextStyle(fontSize: 20),
+                    style: const TextStyle(fontSize: 20),
                   ),
-                  Text(value, style: TextStyle(fontSize: 20))
+                  Text(value, style: const TextStyle(fontSize: 20))
                 ],
               ),
             ),

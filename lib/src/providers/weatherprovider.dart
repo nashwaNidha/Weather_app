@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
 import 'package:weather_app/src/services/location_access.dart';
-import '../model/weather_model/weather_model.dart';
+import '../domain/model/weather_model/weather_model.dart';
 
 class WeatherDetails with ChangeNotifier {
   WeatherModel? _weatherData;
@@ -17,10 +17,6 @@ class WeatherDetails with ChangeNotifier {
 
     Position position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.medium);
-
-    print(
-        " --------------------------------${position.latitude}___________ ${position.longitude}");
-
     final latitude = position.latitude;
     final longitude = position.longitude;
 
@@ -32,11 +28,8 @@ class WeatherDetails with ChangeNotifier {
         await http.get(Uri.parse(baseUrl)).timeout(const Duration(seconds: 15));
     if (response.statusCode == 200) {
       _weatherData = WeatherModel.fromJson(json.decode(response.body));
-      print(response.body);
       _isLoading = false;
       notifyListeners();
-    } else {
-      print("error--------------------------------------------");
-    }
+    } else {}
   }
 }
